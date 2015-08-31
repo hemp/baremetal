@@ -4,7 +4,7 @@ PARENT_DIRECTORY="$(dirname "$(pwd)")"
 
 #-------------------------------------------------------------------------------
 # apply mac os x preferences
-sh osx
+sh osx.sh
 
 #-------------------------------------------------------------------------------
 # install xcode command line tools
