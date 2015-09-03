@@ -67,9 +67,6 @@ brew install macvim
 brew install reattach-to-user-namespace
 brew install tmux
 
-# brew install java
-# brew install maven
-
 brew install youtube-dl
 
 brew install weechat --with-python --with-perl
@@ -79,7 +76,6 @@ brew install weechat --with-python --with-perl
 
 apps=(
     atom
-    audacity
     brackets
     calibre
     coconutbattery
@@ -90,8 +86,7 @@ apps=(
     firefoxdeveloperedition
     flux
     gfxcardstatus
-    gimp-lisanet
-    github
+    github-desktop
     google-chrome
     google-chrome-canary
     handbrake
@@ -123,6 +118,7 @@ apm install --packages-file $PARENT_DIRECTORY/common/atom-packages
 #-------------------------------------------------------------------------------
 # install node packages
 npm -g install bower npm-check-updates
+npm -g install n
 
 #-------------------------------------------------------------------------------
 # clean up
