@@ -103,6 +103,7 @@ apps=(
     sublime-text3
     synergy
     the-unarchiver
+    tunnelblick
     virtualbox
     vlc
     wireshark
