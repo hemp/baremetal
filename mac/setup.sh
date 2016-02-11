@@ -71,6 +71,8 @@ brew install youtube-dl
 
 brew install weechat --with-python --with-perl
 
+brew install ievms
+
 #-------------------------------------------------------------------------------
 # install brew casks
 
@@ -94,6 +96,7 @@ apps=(
     imageoptim
     inkscape
     iterm2
+    licecap
     minecraft
     nvalt
     obs
