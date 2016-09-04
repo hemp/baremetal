@@ -13,6 +13,8 @@ apps=(
     curl
     diffuse
     git
+    htop
+    i3
     firefox
     fonts-inconsolata
     nodejs
@@ -51,6 +53,7 @@ apm install --packages-file $PARENT_DIRECTORY/common/atom-packages
 
 source ~/.profile
 
+sudo chown -R $(whoami) /usr/local #$(npm config get prefix)
 npm -g install bower git-stats n npm-check-updates
 n lts
 
