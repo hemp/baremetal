@@ -8,14 +8,9 @@ PARENT_DIRECTORY="$(dirname "$(pwd)")"
 sh osx.sh
 
 #-------------------------------------------------------------------------------
-# install xcode command line tools
-
-xcode-select --install
-
-#-------------------------------------------------------------------------------
 # install http://brew.sh/
 
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 
 #-------------------------------------------------------------------------------
@@ -27,8 +22,7 @@ brew tap caskroom/versions
 #-------------------------------------------------------------------------------
 # install yadr - https://github.com/skwp/dotfiles
 
-sh -c "`curl -fsSL https://raw.github.com/skwp/dotfiles/master/install.sh`"
-sh $PARENT_DIRECTORY/common/update-yadr.sh
+sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
 
 #-------------------------------------------------------------------------------
 # install brew kegs
@@ -36,6 +30,7 @@ sh $PARENT_DIRECTORY/common/update-yadr.sh
 brew install ack
 brew install coreutils
 brew install curl
+brew install dockutil
 brew install htop-osx
 brew install lynx
 brew install nmap
@@ -128,11 +123,15 @@ apm install --packages-file $PARENT_DIRECTORY/common/atom-packages
 #-------------------------------------------------------------------------------
 # install node packages
 
-npm -g install bower git-stats n npm-check-updates
-n lts
+npm -g install n
+n latest
+
+npm -g install git-stats npm-check-updates
 
 #-------------------------------------------------------------------------------
 # clean up
+
+sh dock.sh
 
 brew cleanup
 brew cask cleanup
