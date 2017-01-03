@@ -57,7 +57,6 @@ brew install haproxy
 brew install nginx
 
 brew install node
-brew install nvm
 brew install phantomjs
 brew install watchman
 
