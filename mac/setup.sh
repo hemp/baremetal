@@ -20,11 +20,6 @@ brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 
 #-------------------------------------------------------------------------------
-# install yadr - https://github.com/skwp/dotfiles
-
-sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
-
-#-------------------------------------------------------------------------------
 # install brew kegs
 
 brew install ack
@@ -113,6 +108,11 @@ apps=(
 )
 
 brew cask install --appdir="/Applications" ${apps[@]}
+
+#-------------------------------------------------------------------------------
+# install yadr - https://github.com/skwp/dotfiles
+
+sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
 
 #-------------------------------------------------------------------------------
 # install atom packages
