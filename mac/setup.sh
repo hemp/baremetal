@@ -95,6 +95,7 @@ apps=(
     nvalt
     obs
     reggy
+    safari-technology-preview
     sourcetree
     spectacle
     sublime-text3
@@ -102,6 +103,7 @@ apps=(
     the-unarchiver
     tunnelblick
     virtualbox
+    visual-studio-code
     vlc
     wireshark
     xquartz
