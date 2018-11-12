@@ -5,33 +5,7 @@ PARENT_DIRECTORY="$(dirname "$(pwd)")"
 #-------------------------------------------------------------------------------
 # apply ubuntu packages
 
-apps=(
-    audacious
-    audacious-plugins
-    build-essential
-    chromium
-    curl
-    diffuse
-    git
-    htop
-    i3
-    firefox
-    fonts-inconsolata
-    nodejs
-    npm
-    qgit
-    rake
-    ruby
-    silversearcher-ag
-    shutter
-    tig
-    wget
-    vim
-    vlc
-    zsh
-)
-
-sudo apt-get --assume-yes install ${apps[@]}
+bash install-ubuntu-packages.sh
 
 #-------------------------------------------------------------------------------
 # install yadr - https://github.com/skwp/dotfiles
@@ -39,22 +13,26 @@ sudo apt-get --assume-yes install ${apps[@]}
 #sh -c "`curl -fsSL https://raw.github.com/skwp/dotfiles/master/install.sh`"
 
 #-------------------------------------------------------------------------------
-# install atom
+# install apps
 
-sh install-atom.sh
+bash install-atom.sh
+bash install-vscode.sh
+bash install-zoom.sh
 
 #-------------------------------------------------------------------------------
-# install atom packages
+# install editor packages/extensions
 
 apm install --packages-file $PARENT_DIRECTORY/common/atom-packages
+bash $PARENT_DIRECTORY/common/vscode-extensions.sh
 
 #-------------------------------------------------------------------------------
-# install node packages
+# install node
 
-source ~/.profile
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
-sudo chown -R $(whoami) /usr/local #$(npm config get prefix)
-npm -g install bower git-stats n npm-check-updates
-n lts
+#-------------------------------------------------------------------------------
+# install docker
+
+bash install-docker.sh
 
 sudo apt-get clean
