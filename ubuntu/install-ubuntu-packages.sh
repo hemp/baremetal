@@ -8,21 +8,24 @@ apps=(
     conky-all
     curl
     diffuse
+    firefox
+    fonts-inconsolata
     git
     git-cola
     htop
     i3
-    firefox
-    fonts-inconsolata
+    network-manager-openvpn
+    network-manager-openvpn-gnome
+    openvpn
     qgit
     rake
     ruby
-    silversearcher-ag
     shutter
+    silversearcher-ag
     tig
-    wget
     vim
     vlc
+    wget
     zsh
 )
 
