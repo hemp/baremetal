@@ -3,21 +3,10 @@
 PARENT_DIRECTORY="$(dirname "$(pwd)")"
 
 #-------------------------------------------------------------------------------
-# apply mac os x preferences
-
-sh osx.sh
-
-#-------------------------------------------------------------------------------
 # install http://brew.sh/
 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
-
-#-------------------------------------------------------------------------------
-# install brew cask - http://caskroom.io/
-
-brew install caskroom/cask/brew-cask
-brew tap caskroom/versions
 
 #-------------------------------------------------------------------------------
 # install brew kegs
@@ -26,13 +15,14 @@ brew install ack
 brew install coreutils
 brew install curl
 brew install dockutil
-brew install htop-osx
+brew install htop
 brew install lynx
 brew install nmap
 brew install wget
 
 brew install exiftool
 brew install faac
+brew install flac
 brew install ffmpeg
 brew install ffmpeg2theora
 brew install imagemagick
@@ -48,11 +38,9 @@ brew install git-cola
 brew install icdiff
 brew install kdiff3
 
-brew install haproxy
 brew install nginx
 
 brew install node
-brew install phantomjs
 brew install watchman
 
 brew install awscli
@@ -72,19 +60,15 @@ brew install ievms
 
 apps=(
     atom
-    brackets
     calibre
-    coconutbattery
     cord
-    disk-inventory-x
     filezilla
     firefox
     firefoxdeveloperedition
-    flux
     gfxcardstatus
-    github-desktop
     google-chrome
     google-chrome-canary
+    grandperspective
     handbrake
     imagealpha
     imageoptim
@@ -96,10 +80,10 @@ apps=(
     obs
     reggy
     safari-technology-preview
+    slack
     sourcetree
     spectacle
     sublime-text3
-    synergy
     the-unarchiver
     tunnelblick
     virtualbox
@@ -107,6 +91,8 @@ apps=(
     vlc
     wireshark
     xquartz
+    zoomus
+    zoomus-outlook-plugin
 )
 
 brew cask install --appdir="/Applications" ${apps[@]}
@@ -115,6 +101,12 @@ brew cask install --appdir="/Applications" ${apps[@]}
 # install yadr - https://github.com/skwp/dotfiles
 
 sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
+
+#-------------------------------------------------------------------------------
+# apply mac os x preferences
+
+sh ~/.yadr/bin/macos
+sh osx.sh
 
 #-------------------------------------------------------------------------------
 # install atom packages
