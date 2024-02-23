@@ -1,0 +1,36 @@
+{
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "editor.guides.bracketPairs": true,
+    "oneDarkPro.markdownStyle": false,
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "emmet.excludeLanguages": [],
+    "emmet.includeLanguages": {
+        "markdown": "html",
+        "javascript": "javascriptreact",
+        "typescript": "typescriptreact"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[python]": {
+        "editor.formatOnType": true
+    },
+    "notebook.lineNumbers": "on",
+    "extensions.experimental.affinity": {
+        "ms-toolsai.jupyter": 1,
+        "ms-toolsai.jupyter-renderers": 1,
+        "ms-python.python": 1,
+        "ms-python.vscode-pylance": 1
+    },
+    "editor.fontVariations": false,
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "editor.fontFamily": "'MesloLGL Nerd Font', 'Iosevka Nerd Font', Menlo, Monaco, 'Courier New', monospace"
+}
