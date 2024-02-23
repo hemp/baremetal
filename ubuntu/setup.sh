@@ -15,7 +15,6 @@ bash install-ubuntu-packages.sh
 #-------------------------------------------------------------------------------
 # install apps
 
-bash install-atom.sh
 bash install-vscode.sh
 bash install-zoom.sh
 

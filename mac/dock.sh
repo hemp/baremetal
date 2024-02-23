@@ -1,6 +1,8 @@
 #!/bin/bash
 
-DOCKUTIL=/usr/local/bin/dockutil
+# rid dock of noise
+
+DOCKUTIL=/opt/homebrew/bin/dockutil
 
 $DOCKUTIL --remove all --no-restart
 $DOCKUTIL --add '/Applications/Firefox.app' --no-restart

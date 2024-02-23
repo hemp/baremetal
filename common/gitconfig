@@ -1,0 +1,25 @@
+[user]
+    name = Chris Hemp
+    email = chris@chrishemp.com
+    user = hemp
+
+[core]
+    excludesfile = ~/.gitignore_global
+    pager = delta
+
+[include]
+    path = ~/.delta/themes.gitconfig
+
+[interactive]
+    diffFilter = delta --color-only
+
+[diff]
+    colorMoved = default
+
+[delta]
+    hyperlinks = true
+	hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+	# hyperlinks-file-link-format = "vscode-insiders://file/{path}:{line}"
+    line-numbers = true
+    navigate = true
+    side-by-side = true
