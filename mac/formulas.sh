@@ -9,7 +9,10 @@ brew analytics off
 brew tap homebrew/bundle
 brew bundle install --file=../common/Brewfile
 
-cp vscode-settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+brew search '/font-.*-nerd-font/' | awk '{ print $1 }' | xargs -I{} brew install --cask {} || true
+
+mkdir -p $HOME/Library/Application\ Support/Code/User
+cp ../common/vscode-settings.json $HOME/Library/Application\ Support/Code/User/settings.json
 $(brew --prefix)/opt/fzf/install
 
 brew cleanup

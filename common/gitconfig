@@ -18,8 +18,8 @@
 
 [delta]
     hyperlinks = true
-	hyperlinks-file-link-format = "vscode://file/{path}:{line}"
-	# hyperlinks-file-link-format = "vscode-insiders://file/{path}:{line}"
+    hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+    # hyperlinks-file-link-format = "vscode-insiders://file/{path}:{line}"
     line-numbers = true
     navigate = true
     side-by-side = true

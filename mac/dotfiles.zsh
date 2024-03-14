@@ -11,15 +11,30 @@
 # brainstormr=~/Projects/development/planetargon/brainstormr
 # cd $brainstormr
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ $(uname -m) == 'arm64' ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
 
 alias _clock="tty-clock -s -c -C 2"
 alias _ohmyzsh="code ~/.oh-my-zsh"
 alias _zshconfig="code ~/.zshrc"
+
+_updatedelta() (
+  git -C $HOME/.delta pull
+)
+
 _updatep10k() (
   git -C ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k pull
 )
 
+_updatezshautocompletions() (
+  git -C ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions pull
+)
+
+# Avoid issues with `gpg` (installed via Homebrew)
+# Ref: https://stackoverflow.com/a/42265848/96656
 export GPG_TTY=$TTY
 
 # https://github.com/junegunn/fzf?tab=readme-ov-file#environment-variables

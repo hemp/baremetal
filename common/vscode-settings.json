@@ -32,5 +32,5 @@
     },
     "editor.fontVariations": false,
     "terminal.integrated.fontFamily": "MesloLGS NF",
-    "editor.fontFamily": "'MesloLGS NF', 'Iosevka Term', Menlo, Monaco, 'Courier New', monospace"
+    "editor.fontFamily": "'MesloLGL Nerd Font', 'Iosevka Nerd Font', Menlo, Monaco, 'Courier New', monospace"
 }
