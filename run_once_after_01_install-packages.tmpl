@@ -1,0 +1,80 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+
+set -eu
+
+{{ if eq .machineType "server" -}}
+apps=(
+  vim
+# bat
+# btop
+# curl
+# fd-find
+# git
+# ripgrep
+# silversearcher-ag
+# tealdeer
+# wget
+# zsh
+)
+{{- else -}}
+apps=(
+  # audacious
+  # audacious-plugins
+  # build-essential
+  # chromium-browser
+  # conky-all
+  # diffuse
+  # dust - https://github.com/bootandy/dust
+  # eza - https://eza.rocks/
+  # firefox
+  # fonts-inconsolata
+  # git-cola
+  # htop
+  # i3
+  # network-manager-openvpn
+  # network-manager-openvpn-gnome
+  # openvpn
+  # qgit
+  # rake
+  # ruby
+  # shutter
+  # tig
+  # vim
+  # vlc
+  bat
+  btop
+  curl
+  fd-find
+  git
+  ripgrep
+  silversearcher-ag
+  tealdeer
+  wget
+  zsh
+)
+{{- end }}
+
+sudo apt-get update && apt-get install -y ${apps[@]}
+
+# wget -q "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -O /tmp/vscode-latest.deb
+# sudo apt install /tmp/vscode-latest.deb
+
+sudo apt-get clean
+
+{{ else if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+set -eu
+
+{{- $script := joinPath .chezmoi.sourceDir "dot_config/homebrew/Brewfile" -}}
+# Brewfile sha256sum: {{- include $script | sha256sum }}
+echo "HOMEBREW_BUNDLE_FILE: ${HOMEBREW_BUNDLE_FILE}"
+brew bundle install
+
+# brew search '/font-.*-nerd-font/' | awk '{ print $1 }' | xargs -I{} brew install --cask {} || true
+# $(brew --prefix)/opt/fzf/install
+
+brew cleanup
+
+{{ end -}}

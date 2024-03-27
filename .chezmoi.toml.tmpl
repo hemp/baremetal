@@ -1,0 +1,8 @@
+{{- $defaultBranch := promptStringOnce . "defaultBranch" "Default git branch" "main" -}}
+{{- $email := promptStringOnce . "email" "Email address" "" -}}
+{{- $machineType := promptStringOnce . "machineType" "server | workstation" "server" -}}
+
+[data]
+    defaultBranch = {{ $defaultBranch | quote }}
+    email = {{ $email | quote }}
+    machineType = {{ $machineType | quote }}

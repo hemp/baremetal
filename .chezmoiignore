@@ -1,0 +1,4 @@
+_*.sh
+Dockerfile
+README.md
+TODO.md

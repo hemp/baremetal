@@ -1,10 +1,13 @@
+[init]
+    defaultBranch = {{ .defaultBranch | quote }}
+
 [user]
     name = Chris Hemp
-    email = chris@chrishemp.com
+    email = {{ .email | quote }}
     user = hemp
 
 [core]
-    excludesfile = ~/.gitignore_global
+    excludesfile = ~/.config/git/ignore
     pager = delta
 
 [include]
