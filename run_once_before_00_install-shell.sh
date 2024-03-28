@@ -29,15 +29,15 @@ if [ ! -d "$HOME/.delta" ]; then
   git clone --depth=1 https://github.com/dandavison/delta.git $HOME/.delta
 fi
 
-# .zshrc
+# .zshrc - minimize .zshrc changes
 case "$OSTYPE" in
   linux*)
     sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' $HOME/.zshrc
-    sed -i 's/plugins=(git)/plugins=(aliases asdf gh git gitignore yarn zsh-autosuggestions)/' $HOME/.zshrc    
+    sed -i 's/plugins=(git)/plugins=(ag aliases asdf brew eza fd fzf gh git gitignore ripgrep yarn zsh-autosuggestions)/' $HOME/.zshrc    
   ;;
   darwin*)
     sed -i '' 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' $HOME/.zshrc
-    sed -i '' 's/plugins=(git)/plugins=(aliases asdf gh git gitignore yarn zsh-autosuggestions)/' $HOME/.zshrc
+    sed -i '' 's/plugins=(git)/plugins=(ag aliases asdf brew eza fd fzf gh git gitignore ripgrep yarn zsh-autosuggestions)/' $HOME/.zshrc
   ;; 
   win*)     echo "Windows" ;;
   msys*)    echo "MSYS / MinGW / Git Bash" ;;

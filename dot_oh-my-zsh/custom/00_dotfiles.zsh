@@ -11,41 +11,10 @@
 # brainstormr=~/Projects/development/planetargon/brainstormr
 # cd $brainstormr
 
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 # echo "${XDG_CONFIG_HOME:-${HOME}/.config}"
 export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile"
-
-case "$OSTYPE" in
-  linux*)
-    # eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-  ;;
-  darwin*)
-    if [[ $(uname -m) == 'arm64' ]]; then
-      eval "$(/opt/homebrew/bin/brew shellenv)"
-    else
-      eval "$(/usr/local/bin/brew shellenv)"
-    fi
-  ;; 
-  win*);;
-  msys*);;
-  cygwin*);;
-  bsd*);;
-  solaris*);;
-  *)
-    echo "unknown: $OSTYPE"
-  ;;
-esac
-
-_updatedelta() (
-  git -C "$HOME/.delta" pull
-)
-
-_updatep10k() (
-  git -C "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" pull
-)
-
-_updatezshautocompletions() (
-  git -C "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" pull
-)
 
 # Avoid issues with `gpg` (installed via Homebrew)
 # Ref: https://stackoverflow.com/a/42265848/96656
@@ -78,3 +47,15 @@ if command -v nvim >/dev/null; then
   alias vi=$(which nvim)
   alias vim=$(which nvim)
 fi
+
+_updatedelta() (
+  git -C "$HOME/.delta" pull
+)
+
+_updatep10k() (
+  git -C "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" pull
+)
+
+_updatezshautocompletions() (
+  git -C "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" pull
+)
