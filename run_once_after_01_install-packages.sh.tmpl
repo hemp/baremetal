@@ -4,21 +4,26 @@
 set -eu
 
 {{ if eq .machineType "server" -}}
+
 apps=(
   vim
-# bat
-# btop
-# curl
-# fd-find
-# git
-# ripgrep
-# silversearcher-ag
-# s-tui
-# tealdeer
-# wget
-# zsh
+  # bat
+  # btop
+  # curl
+  # fd-find
+  # git
+  # ripgrep
+  # silversearcher-ag
+  # s-tui
+  # tealdeer
+  # wget
+  # zsh
 )
+
+sudo apt-get update && apt-get install -y ${apps[@]}
+
 {{- else -}}
+
 apps=(
   # audacious
   # audacious-plugins
@@ -54,12 +59,12 @@ apps=(
   wget
   zsh
 )
-{{- end }}
 
 sudo apt-get update && apt-get install -y ${apps[@]}
-
 # wget -q "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -O /tmp/vscode-latest.deb
 # sudo apt install /tmp/vscode-latest.deb
+
+{{- end }}
 
 sudo apt-get clean
 
