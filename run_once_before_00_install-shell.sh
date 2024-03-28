@@ -6,8 +6,26 @@ set -eu
 
 # install ohmyzsh (https://ohmyz.sh/)
 
-if ! command -v omz >/dev/null; then
+if [ ! -d "$ZSH" ]; then
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+  # .zshrc - minimize .zshrc changes
+  case "$OSTYPE" in
+    linux*)
+      sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' $HOME/.zshrc
+      sed -i 's/plugins=(git)/plugins=(ag aliases asdf brew eza fd fzf gh git gitignore ripgrep yarn zsh-autosuggestions)/' $HOME/.zshrc    
+    ;;
+    darwin*)
+      sed -i '' 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' $HOME/.zshrc
+      sed -i '' 's/plugins=(git)/plugins=(ag aliases asdf brew eza fd fzf gh git gitignore ripgrep yarn zsh-autosuggestions)/' $HOME/.zshrc
+    ;; 
+    win*)     echo "Windows" ;;
+    msys*)    echo "MSYS / MinGW / Git Bash" ;;
+    cygwin*)  echo "Cygwin" ;;
+    bsd*)     echo "BSD" ;;
+    solaris*) echo "Solaris" ;;
+    *)        echo "unknown: $OSTYPE" ;;
+  esac
 fi
 
 if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then
@@ -29,26 +47,7 @@ if [ ! -d "$HOME/.delta" ]; then
   git clone --depth=1 https://github.com/dandavison/delta.git $HOME/.delta
 fi
 
-# .zshrc - minimize .zshrc changes
-case "$OSTYPE" in
-  linux*)
-    sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' $HOME/.zshrc
-    sed -i 's/plugins=(git)/plugins=(ag aliases asdf brew eza fd fzf gh git gitignore ripgrep yarn zsh-autosuggestions)/' $HOME/.zshrc    
-  ;;
-  darwin*)
-    sed -i '' 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' $HOME/.zshrc
-    sed -i '' 's/plugins=(git)/plugins=(ag aliases asdf brew eza fd fzf gh git gitignore ripgrep yarn zsh-autosuggestions)/' $HOME/.zshrc
-  ;; 
-  win*)     echo "Windows" ;;
-  msys*)    echo "MSYS / MinGW / Git Bash" ;;
-  cygwin*)  echo "Cygwin" ;;
-  bsd*)     echo "BSD" ;;
-  solaris*) echo "Solaris" ;;
-  *)        echo "unknown: $OSTYPE" ;;
-esac
-
-# configure .p10k.zsh runs on first zsh launch after being installed
-# p10k configure
+# configure .p10k.zsh: runs on first zsh launch after being installed: `p10k configure`
 
 # iterm2: font: MesloLGS NF, nerdfont-complete
 # iterm2: color preset: tango dark
