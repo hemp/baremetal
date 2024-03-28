@@ -61,8 +61,9 @@ apps=(
 )
 
 sudo apt-get update && apt-get install -y ${apps[@]}
-# wget -q "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -O /tmp/vscode-latest.deb
-# sudo apt install /tmp/vscode-latest.deb
+wget -q "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -O /tmp/vscode-latest.deb
+sudo apt install /tmp/vscode-latest.deb
+sudo rm /tmp/vscode-latest.deb
 
 {{- end }}
 
@@ -73,13 +74,11 @@ sudo apt-get clean
 
 set -eu
 
-{{- $script := joinPath .chezmoi.sourceDir "dot_config/homebrew/Brewfile" -}}
-# Brewfile sha256sum: {{- include $script | sha256sum }}
+# Brewfile hash: {{ include "dot_config/homebrew/Brewfile" | sha256sum }}
 echo "HOMEBREW_BUNDLE_FILE: ${HOMEBREW_BUNDLE_FILE}"
 brew bundle install
 
-# brew search '/font-.*-nerd-font/' | awk '{ print $1 }' | xargs -I{} brew install --cask {} || true
-# $(brew --prefix)/opt/fzf/install
+brew search '/font-.*-nerd-font/' | awk '{ print $1 }' | xargs -I{} brew install --cask {} || true
 
 brew cleanup
 

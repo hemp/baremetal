@@ -44,7 +44,7 @@ _updatep10k() (
 )
 
 _updatezshautocompletions() (
-  git -C "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" pull
+  git -C "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" pull
 )
 
 # Avoid issues with `gpg` (installed via Homebrew)
@@ -71,8 +71,8 @@ if command -v broot >/dev/null; then
 fi
 
 alias _clock="tty-clock -s -c -C 2"
-alias _ohmyzsh="code ~/.oh-my-zsh"
-alias _zshconfig="code ~/.zshrc"
+alias _ohmyzsh="code $HOME/.oh-my-zsh"
+alias _zshconfig="code $HOME/.zshrc"
 
 if command -v nvim >/dev/null; then
   alias vi=$(which nvim)
