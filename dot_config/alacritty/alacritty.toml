@@ -1,0 +1,6 @@
+import = [
+  "~/.iterm2-color-schemes/alacritty/Tomorrow Night Bright.toml"
+]
+
+[font.normal]
+family = "MesloLGS NF"

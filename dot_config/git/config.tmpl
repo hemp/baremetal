@@ -1,0 +1,31 @@
+[init]
+    defaultBranch = {{ .defaultBranch | quote }}
+
+[user]
+    name = Chris Hemp
+    email = {{ .email | quote }}
+    user = hemp
+
+[core]
+    excludesfile = ~/.config/git/ignore
+    pager = delta
+
+[include]
+    path = ~/.delta/themes.gitconfig
+
+[interactive]
+    diffFilter = delta --color-only
+
+[diff]
+    colorMoved = default
+
+[delta]
+    hyperlinks = true
+    hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+    # hyperlinks-file-link-format = "vscode-insiders://file/{path}:{line}"
+    line-numbers = true
+    navigate = true
+    side-by-side = true
+
+[includeIf "gitdir:~/work/"]
+    path = ~/work/.gitconfig

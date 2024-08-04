@@ -1,0 +1,78 @@
+#!/bin/bash
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+ITERATION0_APT=(
+  curl
+  git
+  gpg
+  sudo
+  wget
+  zsh
+)
+
+sudo apt-get install -y ${ITERATION0_APT[@]}
+
+ITERATION1_BREW=(
+  bat
+  bottom
+  btop
+  ctop
+  dive
+  dust
+  eza
+  fd
+  fzf
+  git-delta
+  neovim
+  ranger
+  ripgrep
+  tealdeer
+  the_silver_searcher
+)
+
+brew install ${ITERATION1_BREW[@]}
+
+# lunarvim
+bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+
+{{ if eq .machineType "server" -}}
+
+ITERATION2_SERVER=(
+  openssh-server
+)
+
+sudo apt-get install -y ${ITERATION2_SERVER[@]}
+
+{{- else -}}
+
+ITERATION2=(
+  # audacious
+  # audacious-plugins
+  # chromium-browser
+  # conky-all
+  # diffuse
+  # firefox
+  # fonts-inconsolata
+  # git-cola
+  # i3
+  # network-manager-openvpn
+  # network-manager-openvpn-gnome
+  # openvpn
+  # qgit
+  # shutter
+  # tig
+  # vlc
+  direnv
+)
+
+sudo apt-get install -y ${ITERATION2[@]}
+
+# vscode
+# wget -q "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -O /tmp/vscode-latest.deb
+# sudo apt install /tmp/vscode-latest.deb
+# sudo rm /tmp/vscode-latest.deb
+
+{{- end }}
+
+sudo apt-get clean
