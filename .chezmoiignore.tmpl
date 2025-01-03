@@ -1,18 +1,24 @@
 {{ if ne .chezmoi.os "darwin" }}
 .chezmoiscripts/darwin/**
+Library/Application Support/Code/User/settings.json
 {{ end }}
 
 {{ if ne .chezmoi.os "linux" }}
 .chezmoiscripts/linux/**
-dot_local/bin/symlink_*
+.config/Code/User/settings.json
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}
 .chezmoiscripts/windows/**
+.local/bin/windows
+AppData
+Documents
+{{ else }}
+.chezmoiscripts/*.sh
 {{ end }}
 
 _*.sh
+.local/bin/macos-sh-references
 Dockerfile
-dot_local/bin/macos-sh-references/
 README.md
 TODO.md
