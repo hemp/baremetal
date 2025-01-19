@@ -1,11 +1,10 @@
 #!/bin/bash
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 ITERATION0_APT=(
   curl
   git
   gpg
+  jq
   sudo
   wget
   zsh
@@ -13,40 +12,20 @@ ITERATION0_APT=(
 
 sudo apt-get install -y ${ITERATION0_APT[@]}
 
-ITERATION1_BREW=(
-  bat
-  bottom
-  btop
-  ctop
-  dive
-  dust
-  eza
-  fd
-  fzf
-  git-delta
-  neovim
-  ranger
-  ripgrep
-  tealdeer
-  the_silver_searcher
-)
-
-brew install ${ITERATION1_BREW[@]}
-
 # lunarvim
 bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 
 {{ if eq .machineType "server" -}}
 
-ITERATION2_SERVER=(
+ITERATION1_SERVER=(
   openssh-server
 )
 
-sudo apt-get install -y ${ITERATION2_SERVER[@]}
+sudo apt-get install -y ${ITERATION1_SERVER[@]}
 
 {{- else -}}
 
-ITERATION2=(
+ITERATION1=(
   # audacious
   # audacious-plugins
   # chromium-browser
@@ -66,12 +45,39 @@ ITERATION2=(
   direnv
 )
 
-sudo apt-get install -y ${ITERATION2[@]}
+sudo apt-get install -y ${ITERATION1[@]}
 
 # vscode
 # wget -q "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -O /tmp/vscode-latest.deb
 # sudo apt install /tmp/vscode-latest.deb
 # sudo rm /tmp/vscode-latest.deb
+
+{{- end }}
+
+{{ if ne .chezmoi.arch "arm64" -}}
+
+# homebrew does not support arm
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+ITERATION_BREW=(
+  bat
+  bottom
+  btop
+  ctop
+  dive
+  dust
+  eza
+  fd
+  fzf
+  git-delta
+  neovim
+  ranger
+  ripgrep
+  tealdeer
+  the_silver_searcher
+)
+
+brew install ${ITERATION_BREW[@]}
 
 {{- end }}
 
