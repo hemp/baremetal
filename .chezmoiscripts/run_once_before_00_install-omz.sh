@@ -37,11 +37,6 @@ if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]; then
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
 
-# stage runtimes for shell
-if [ ! -d "$HOME/.asdf" ]; then
-  git clone --depth=1 https://github.com/asdf-vm/asdf.git $HOME/.asdf
-fi
-
 # delta themes - https://raw.githubusercontent.com/dandavison/delta/master/themes.gitconfig
 if [ ! -d "$HOME/.delta" ]; then
   git clone --depth=1 https://github.com/dandavison/delta.git $HOME/.delta

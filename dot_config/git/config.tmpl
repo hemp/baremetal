@@ -10,14 +10,39 @@
     excludesfile = ~/.config/git/ignore
     pager = delta
 
-[include]
-    path = ~/.delta/themes.gitconfig
+[column]
+    ui = auto
+
+[diff]
+    algorithm = histogram
+    colorMoved = true
+    mnemonicPrefix = true
+    renames = true
 
 [interactive]
     diffFilter = delta --color-only
 
-[diff]
-    colorMoved = default
+[merge]
+    conflictstyle = zdiff3
+
+[branch]
+    sort = -committerdate
+
+[tag]
+    sort = version:refname
+
+[push]
+    default = simple
+    autoSetupRemote = true
+    followTags = true
+
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+
+[commit]
+    verbose = true
 
 [delta]
     hyperlinks = true
@@ -26,6 +51,9 @@
     line-numbers = true
     navigate = true
     side-by-side = true
+
+[include]
+    path = ~/.delta/themes.gitconfig
 
 [includeIf "gitdir:~/work/"]
     path = ~/work/.gitconfig

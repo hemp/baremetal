@@ -1,8 +1,3 @@
-# [".asdf"]
-#     type = "git-repo"
-#     url = "https://github.com/asdf-vm/asdf.git"
-#     refreshPeriod = "168h"
-
 # # delta dhemes
 # [".delta"]
 #     type = "git-repo"
