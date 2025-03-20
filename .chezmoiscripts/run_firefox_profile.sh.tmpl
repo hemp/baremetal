@@ -1,9 +1,16 @@
 #!/bin/bash
 
+# @see win11: .chezmoiscripts/windows/run_firefox_profile.ps1
+
 {{ if eq .chezmoi.os "darwin" }}
-cp -rf .config/firefox/policies.json /Applications/Firefox.app/Contents/Resources/distribution/.
+FF_PROFILE_LOCATION=/Applications/Firefox.app/Contents/Resources/distribution/
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
-cp -rf .config/firefox/policies.json /etc/firefox/policies/.
+FF_PROFILE_LOCATION=/etc/firefox/policies/
 {{ end }}
+
+echo "run_firefox_profile: ${FF_PROFILE_LOCATION}"
+
+mkdir -p $FF_PROFILE_LOCATION
+cp -rf .config/firefox/policies.json $FF_PROFILE_LOCATION
