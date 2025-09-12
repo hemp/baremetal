@@ -3,8 +3,9 @@
 # @see win11: .chezmoiscripts/windows/run_firefox_profile.ps1
 
 {{ if eq .chezmoi.os "darwin" }}
-echo "Reminder note about permissions:"
-echo " --> Enable: Settings > Privacy & Security > App Management > Allow terminal apps"
+echo "Reminder about permissions:"
+echo " --> Enable:  > System Settings > Privacy & Security > App Management > Allow terminal apps"
+
 FF_PROFILE_LOCATION=/Applications/Firefox.app/Contents/Resources/distribution/
 {{ end }}
 
