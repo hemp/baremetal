@@ -8,8 +8,11 @@ echo " --> Full Disk Access is required for this script, see: https://support.ap
 echo " --> Enable:  > System Settings > Privacy & Security > Full Disk Access > Allow terminal apps"
 
 # Capture original settings
-defaults read > defaults.pre.txt
-launchctl list > launchctl-list.pre.txt
+if [ ! -f defaults.pre.txt ]; then
+  echo "Capturing defaults"
+  defaults read > defaults.pre.txt
+  launchctl list > launchctl.pre.txt
+fi
 
 # Command-R while booting up
 # Launch Terminal
