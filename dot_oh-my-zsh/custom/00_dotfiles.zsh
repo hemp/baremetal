@@ -13,10 +13,6 @@
 
 export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
-# one day: 86400
-# five days: 432000
-export HOMEBREW_AUTO_UPDATE_SECS=432000
-export HOMEBREW_BUNDLE_FILE="$HOME/.config/homebrew/Brewfile"
 
 # Avoid issues with `gpg` (installed via Homebrew)
 # Ref: https://stackoverflow.com/a/42265848/96656

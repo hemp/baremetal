@@ -8,8 +8,8 @@ else
 fi
 
 # Brewfile hash: {{ include "dot_config/homebrew/Brewfile" | sha256sum }}
-echo "HOMEBREW_BUNDLE_FILE: ${HOMEBREW_BUNDLE_FILE}"
-brew bundle install
+echo "HOMEBREW_BUNDLE_FILE: ${XDG_CONFIG_HOME}/homebrew/Brewfile"
+brew bundle install --global
 # https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e
 brew search '/font-.*-(nerd-font|nf)/' | awk '{ print $1 }' | xargs brew install || true
 brew cleanup
