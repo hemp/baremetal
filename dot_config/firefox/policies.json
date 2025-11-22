@@ -58,8 +58,30 @@
       "UrlbarInterventions": false,
       "SkipOnboarding": true,
       "MoreFromMozilla": false,
-      "FirefoxLabs": true,
+      "FirefoxLabs": false,
       "Locked": false
+    },
+    "Preferences": {
+      "accessibility.force_disabled": {
+        "Value": 1,
+        "Status": "default"
+      },
+      "browser.gesture.swipe.left": {
+        "Value": "cmd_scrollLeft",
+        "Status": "user"
+      },
+      "browser.gesture.swipe.right": {
+        "Value": "cmd_scrollRight",
+        "Status": "user"
+      },
+      "browser.tabs.warnOnClose": {
+        "Value": false,
+        "Status": "locked"
+      },
+      "sidebar.revamp": {
+        "Value": false,
+        "Status": "locked"
+      }
     }
   }
 }

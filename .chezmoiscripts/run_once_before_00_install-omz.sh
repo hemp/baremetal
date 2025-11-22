@@ -50,5 +50,5 @@ fi
 
 # notes:
 # configure .p10k.zsh: runs on first zsh launch after being installed: `p10k configure`
-# iterm2: font: MesloLGS NF, nerdfont-complete
+# iterm2: font: MesloLGM Nerd Font, nerdfont-complete
 # iterm2: color preset: tango dark

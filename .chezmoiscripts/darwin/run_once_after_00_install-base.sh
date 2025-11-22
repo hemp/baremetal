@@ -12,7 +12,6 @@ if ! command -v brew >/dev/null; then
   fi
 
   brew analytics off
-  brew tap homebrew/bundle
   brew update
   brew cleanup
 fi

@@ -1,0 +1,20 @@
+#!/bin/bash
+
+MACHINE_NAME="{{ .machineName }}"
+
+echo "Set Machine Name to: ${MACHINE_NAME}"
+
+{{ if eq .chezmoi.os "darwin" }}
+echo "Reminder about permissions:"
+echo " --> Full Disk Access is required for this script, see: https://support.apple.com/en-us/HT210595"
+echo " --> Enable:  > System Settings > Privacy & Security > Full Disk Access > Allow terminal apps"
+
+sudo scutil --set ComputerName "${MACHINE_NAME}"
+sudo scutil --set HostName "${MACHINE_NAME}"
+sudo scutil --set LocalHostName "${MACHINE_NAME}"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "${MACHINE_NAME}"
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+sudo hostnamectl set-hostname  "${MACHINE_NAME}"
+{{ end }}

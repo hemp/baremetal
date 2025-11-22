@@ -14,7 +14,7 @@ echo '---'
 
 {{ if ne .chezmoi.arch "arm64" -}}
 
-# homebrew does not support arm
+# homebrew does not support linux arm
 # install http://brew.sh/ and homebrew/bundle
 
 if ! command -v brew >/dev/null; then
@@ -23,7 +23,6 @@ if ! command -v brew >/dev/null; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
   brew analytics off
-  brew tap homebrew/bundle
   brew update
   brew cleanup
 fi

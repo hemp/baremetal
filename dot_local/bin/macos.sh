@@ -1,10 +1,18 @@
 #!/usr/bin/env bash
 
-# ~/.macos — https://mths.be/macos
+# ~/.macos — https://mths.be/macos - https://github.com/mathiasbynens/dotfiles/blob/main/.macos
+#
+# 2018-10-10 - https://github.com/mathiasbynens/dotfiles/issues/849
+echo "Reminder about permissions:"
+echo " --> Full Disk Access is required for this script, see: https://support.apple.com/en-us/HT210595"
+echo " --> Enable:  > System Settings > Privacy & Security > Full Disk Access > Allow terminal apps"
 
 # Capture original settings
-defaults read > defaults.pre.txt
-launchctl list > launchctl-list.pre.txt
+if [ ! -f defaults.pre.txt ]; then
+  echo "Capturing defaults"
+  defaults read > defaults.pre.txt
+  launchctl list > launchctl.pre.txt
+fi
 
 # Command-R while booting up
 # Launch Terminal
