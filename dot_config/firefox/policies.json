@@ -20,6 +20,47 @@
       "{9063c2e9-e07c-4c2c-9646-cfe7ca8d0498}": {
         "installation_mode": "force_installed",
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/old-reddit-redirect/latest.xpi"
+      },
+      "password-manager-firefox-extension@apple.com": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/icloud-passwords/latest.xpi"
+      }
+    },
+
+    "3rdparty": {
+      "Extensions": {
+        "uBlock0@raymondhill.net": {
+          "adminSettings": {
+            "selectedFilterLists": [
+              "user-filters",
+              "ublock-filters",
+              "ublock-badware",
+              "ublock-privacy",
+              "ublock-quick-fixes",
+              "ublock-unbreak",
+              "easylist",
+              "easyprivacy",
+              "urlhaus-1",
+              "plowe-0",
+              "fanboy-cookiemonster",
+              "ublock-cookies-easylist",
+              "fanboy-social",
+              "fanboy-ai-suggestions",
+              "easylist-chat",
+              "easylist-newsletters",
+              "easylist-notifications",
+              "easylist-annoyances"
+            ]
+          }
+        },
+        "{c607c8df-14a7-4f28-894f-29e8722976af}": {
+          "preferences": {
+            "automaticMode": {
+              "active": true,
+              "newTab": "created"
+            }
+          }
+        }
       }
     },
 
@@ -51,7 +92,18 @@
     },    
     "NoDefaultBookmarks": true,
     "OverrideFirstRunPage": "",
+    "OverridePostUpdatePage": "",
     "SearchSuggestEnabled": false,
+
+    "DisableAccounts": true,
+    "DisableProfileImport": true,
+    "GenerativeAI": {
+      "Enabled": false,
+      "Locked": true
+    },
+    "PictureInPicture": {
+      "Enabled": false
+    },
     "UserMessaging": {
       "ExtensionRecommendations": false,
       "FeatureRecommendations": false,
@@ -61,10 +113,16 @@
       "FirefoxLabs": false,
       "Locked": false
     },
+    "VisualSearchEnabled": false,
+
     "Preferences": {
       "accessibility.force_disabled": {
         "Value": 1,
         "Status": "default"
+      },
+      "browser.aboutConfig.showWarning": {
+        "Value": false,
+        "Status": "locked"
       },
       "browser.gesture.swipe.left": {
         "Value": "cmd_scrollLeft",
