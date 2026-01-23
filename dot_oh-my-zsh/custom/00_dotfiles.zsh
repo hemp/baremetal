@@ -68,3 +68,5 @@ _updatedelta() (
 _updateitermcolorschemes() (
   git -C "$HOME/.iterm2-color-schemes" pull
 )
+
+eval "$(mise activate zsh)"
