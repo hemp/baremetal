@@ -13,21 +13,3 @@ brew bundle install --global
 # https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e
 brew search '/font-.*-(nerd-font|nf)/' | awk '{ print $1 }' | xargs brew install || true
 brew cleanup
-
-$HOME/.iterm2-color-schemes/tools/import-scheme.sh 'Tomorrow Night Bright'
-
-# Remove binary used on fresh first install and defer to the version from: `brew install chezmoi`
-rm -f $HOME/bin/chezmoi
-
-# remove GateKeeper
-# xattr -c -r /Applications/Alacritty.app
-# xattr -c -r /Applications/iTerm.app
-# xattr -c -r /Applications/Spotify.app
-# xattr -c -r /Applications/WezTerm.app
-
-mise install
-
-# lunarvim:
-# https://www.lunarvim.org/docs/installation
-# Have git, make, pip, python, npm, node, cargo and ripgrep installed on your system.
-bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
