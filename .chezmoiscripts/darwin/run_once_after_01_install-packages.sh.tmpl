@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+echo "install-packages:"
+
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
 if [[ $(uname -m) == 'arm64' ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -10,6 +12,9 @@ fi
 # Brewfile hash: {{ include "dot_config/homebrew/Brewfile" | sha256sum }}
 echo "HOMEBREW_BUNDLE_FILE: ${XDG_CONFIG_HOME}/homebrew/Brewfile"
 brew bundle install --global
+echo -e "\n---\n👀 Review removed bundle items to clean up:\n"
+brew bundle cleanup --global
+echo -e "---\n"
 # https://gist.github.com/davidteren/898f2dcccd42d9f8680ec69a3a5d350e
 brew search '/font-.*-(nerd-font|nf)/' | awk '{ print $1 }' | xargs brew install || true
 brew cleanup

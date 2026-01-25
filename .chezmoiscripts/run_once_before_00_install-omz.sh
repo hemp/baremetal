@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "omz:"
+
 # install ohmyzsh (https://ohmyz.sh/)
 
 if [ ! -d "$ZSH" ]; then

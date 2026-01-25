@@ -115,7 +115,7 @@ cask "stats"
 cask "visual-studio-code"
 cask "vlc"
 cask "wezterm"
-cask "windows-app"
+# cask "windows-app"
 # cask "zoom"
 vscode "bierner.github-markdown-preview"
 vscode "bierner.markdown-checkbox"
@@ -153,3 +153,4 @@ vscode "tamasfe.even-better-toml"
 vscode "takumii.markdowntable"
 vscode "zhuangtongfa.material-theme"
 mas "Amphetamine", id: 937984704
+mas "uBlock Origin Lite", id: 6745342698

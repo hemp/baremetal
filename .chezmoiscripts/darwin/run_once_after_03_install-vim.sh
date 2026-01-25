@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "install-vim:"
+
 # lunarvim:
 # https://www.lunarvim.org/docs/installation
 # Have git, make, pip, python, npm, node, cargo and ripgrep installed on your system.
