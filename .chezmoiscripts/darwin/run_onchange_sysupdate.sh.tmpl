@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "onchange: MacOS build version"
+# {{ output "sw_vers" "--productName" }}
+# {{ output "sw_vers" "--productVersion" }}
+# {{ output "sw_vers" "--buildVersion" }}
+xcode-select --install || true
