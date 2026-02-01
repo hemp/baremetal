@@ -4,4 +4,10 @@ echo "onchange: MacOS build version"
 # {{ output "sw_vers" "--productName" }}
 # {{ output "sw_vers" "--productVersion" }}
 # {{ output "sw_vers" "--buildVersion" }}
-xcode-select --install || true
+if command -v xcode-select &> /dev/null; then
+  xcode-select --install || true
+else
+  echo "bootstrap: Run again after Xcode Command Line Tools completes installation"
+  xcode-select --install
+  exit 1
+fi
