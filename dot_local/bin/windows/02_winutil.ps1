@@ -9,6 +9,9 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
   }
 }
 
+# https://github.com/Raphire/Win11Debloat
+& ([scriptblock]::Create((irm "https://debloat.raphi.re/")))
+
 # https://github.com/christitustech/winutil
 # Import > ./winutil.json
 irm "https://christitus.com/win" | iex

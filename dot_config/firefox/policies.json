@@ -1,87 +1,141 @@
 {
   "policies": {
-    "ExtensionSettings": {
-      "uBlock0@raymondhill.net": {
-        "installation_mode": "force_installed",
-        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
-      },
-      "{c607c8df-14a7-4f28-894f-29e8722976af}": {
-        "installation_mode": "force_installed",
-        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/temporary-containers/latest.xpi"
-      },
-      "@testpilot-containers": {
-        "installation_mode": "force_installed",
-        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi"
-      },
-      "enhancerforyoutube@maximerf.addons.mozilla.org": {
-        "installation_mode": "force_installed",
-        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-youtube/latest.xpi"
-      },
-      "{9063c2e9-e07c-4c2c-9646-cfe7ca8d0498}": {
-        "installation_mode": "force_installed",
-        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/old-reddit-redirect/latest.xpi"
+    "3rdparty": {
+      "Extensions": {
+        "{c607c8df-14a7-4f28-894f-29e8722976af}": {
+          "preferences": {
+            "automaticMode": {
+              "active": true,
+              "newTab": "created"
+            }
+          }
+        },
+        "uBlock0@raymondhill.net": {
+          "adminSettings": {
+            "selectedFilterLists": [
+              "user-filters",
+              "ublock-filters",
+              "ublock-badware",
+              "ublock-privacy",
+              "ublock-quick-fixes",
+              "ublock-unbreak",
+              "easylist",
+              "easyprivacy",
+              "urlhaus-1",
+              "plowe-0",
+              "fanboy-cookiemonster",
+              "ublock-cookies-easylist",
+              "fanboy-social",
+              "fanboy-ai-suggestions",
+              "easylist-chat",
+              "easylist-newsletters",
+              "easylist-notifications",
+              "easylist-annoyances"
+            ]
+          }
+        }
       }
     },
-
+    "DisableAccounts": true,
     "DisableFirefoxStudies": true,
     "DisablePocket": true,
+    "DisableProfileImport": true,
     "DisableTelemetry": true,
     "DisplayBookmarksToolbar": "always",
+    "ExtensionSettings": {
+      "{9063c2e9-e07c-4c2c-9646-cfe7ca8d0498}": {
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/old-reddit-redirect/latest.xpi",
+        "installation_mode": "force_installed"
+      },
+      "{c607c8df-14a7-4f28-894f-29e8722976af}": {
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/temporary-containers/latest.xpi",
+        "installation_mode": "force_installed"
+      },
+      "@testpilot-containers": {
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi",
+        "installation_mode": "force_installed"
+      },
+      "enhancerforyoutube@maximerf.addons.mozilla.org": {
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-youtube/latest.xpi",
+        "installation_mode": "force_installed"
+      },
+      "password-manager-firefox-extension@apple.com": {
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/icloud-passwords/latest.xpi",
+        "installation_mode": "force_installed"
+      },
+      "uBlock0@raymondhill.net": {
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi",
+        "installation_mode": "force_installed"
+      }
+    },
     "FirefoxHome": {
-      "Search": true,
-      "TopSites": false,
-      "SponsoredTopSites": false,
       "Highlights": false,
+      "Locked": false,
       "Pocket": false,
-      "SponsoredPocket": false,
+      "Search": true,
       "Snippets": false,
-      "Locked": false
+      "SponsoredPocket": false,
+      "SponsoredTopSites": false,
+      "TopSites": false
     },
     "FirefoxSuggest": {
-      "WebSuggestions": false,
-      "SponsoredSuggestions": false,
       "ImproveSuggest": false,
-      "Locked": false
+      "Locked": false,
+      "SponsoredSuggestions": false,
+      "WebSuggestions": false
+    },
+    "GenerativeAI": {
+      "Enabled": false,
+      "Locked": true
     },
     "Homepage": {
-      "URL": "",
-      "Locked": false,
       "Additional": [],
-      "StartPage": "none"
-    },    
+      "Locked": false,
+      "StartPage": "none",
+      "URL": ""
+    },
     "NoDefaultBookmarks": true,
     "OverrideFirstRunPage": "",
+    "OverridePostUpdatePage": "",
+    "PictureInPicture": {
+      "Enabled": false
+    },
+    "Preferences": {
+      "accessibility.force_disabled": {
+        "Status": "default",
+        "Value": 1
+      },
+      "browser.aboutConfig.showWarning": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.gesture.swipe.left": {
+        "Status": "user",
+        "Value": "cmd_scrollLeft"
+      },
+      "browser.gesture.swipe.right": {
+        "Status": "user",
+        "Value": "cmd_scrollRight"
+      },
+      "browser.tabs.warnOnClose": {
+        "Status": "locked",
+        "Value": false
+      },
+      "sidebar.revamp": {
+        "Status": "locked",
+        "Value": false
+      }
+    },
     "SearchSuggestEnabled": false,
     "UserMessaging": {
       "ExtensionRecommendations": false,
       "FeatureRecommendations": false,
-      "UrlbarInterventions": false,
-      "SkipOnboarding": true,
-      "MoreFromMozilla": false,
       "FirefoxLabs": false,
-      "Locked": false
+      "Locked": false,
+      "MoreFromMozilla": false,
+      "SkipOnboarding": true,
+      "UrlbarInterventions": false
     },
-    "Preferences": {
-      "accessibility.force_disabled": {
-        "Value": 1,
-        "Status": "default"
-      },
-      "browser.gesture.swipe.left": {
-        "Value": "cmd_scrollLeft",
-        "Status": "user"
-      },
-      "browser.gesture.swipe.right": {
-        "Value": "cmd_scrollRight",
-        "Status": "user"
-      },
-      "browser.tabs.warnOnClose": {
-        "Value": false,
-        "Status": "locked"
-      },
-      "sidebar.revamp": {
-        "Value": false,
-        "Status": "locked"
-      }
-    }
+    "VisualSearchEnabled": false
   }
 }

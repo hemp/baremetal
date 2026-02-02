@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "install-base: brew"
+
 # install http://brew.sh/ and bundle
 
 if ! command -v brew >/dev/null; then

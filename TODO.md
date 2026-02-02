@@ -18,9 +18,9 @@ Allow changes by VSCode to be reflected back into `{{ .chezmoi.sourceDir }}` via
 
 Refreshed every `chezmoi apply`.
 
-- Docs: <https://mozilla.github.io/policy-templates/#extensionsettings>
+- Docs: <https://mozilla.github.io/policy-templates/>
 - Schema: <https://github.com/mozilla/policy-templates/blob/master/linux/policies.json>
-- Fetch addon `guid` for policies.json: <https://addons.mozilla.org/api/v5/addons/addon/temporary-containers/>
+- Use addon `guid` inside `policies.json` for the JSON key. Example: <https://addons.mozilla.org/api/v5/addons/addon/temporary-containers/>
 
 ## Review
 
@@ -29,3 +29,4 @@ Refreshed every `chezmoi apply`.
 - https://github.com/agarun/dotfiles
 - https://github.com/MikeMcQuaid/dotfiles/blob/main/Brewfile
 - https://github.com/drmohundro/dotfiles
+- https://github.com/ctdio/dotfiles/
