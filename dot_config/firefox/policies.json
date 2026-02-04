@@ -105,6 +105,10 @@
         "Status": "default",
         "Value": 1
       },
+      "browser.ai.control.default": {
+        "Status": "locked",
+        "Value": "blocked"
+      },
       "browser.aboutConfig.showWarning": {
         "Status": "locked",
         "Value": false
