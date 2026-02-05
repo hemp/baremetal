@@ -69,4 +69,6 @@ _updateitermcolorschemes() (
   git -C "$HOME/.iterm2-color-schemes" pull
 )
 
+command -v brew >/dev/null || export PATH="/opt/homebrew/bin:/home/linuxbrew/.linuxbrew/bin:/usr/local/bin"
+command -v brew >/dev/null && eval "$(brew shellenv)"
 eval "$(mise activate zsh)"
