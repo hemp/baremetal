@@ -4,6 +4,8 @@
 
 echo "firefox-profile:"
 
+RUN_AS=
+
 {{ if eq .chezmoi.os "darwin" }}
 echo "Reminder about permissions:"
 echo " --> Enable:  > System Settings > Privacy & Security > App Management > Allow terminal apps"
@@ -12,6 +14,7 @@ FF_PROFILE_LOCATION=/Applications/Firefox.app/Contents/Resources/distribution/
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
+RUN_AS=sudo
 FF_PROFILE_LOCATION=/etc/firefox/policies/
 {{ end }}
 
@@ -20,5 +23,5 @@ FF_PROFILE_SOURCE={{ .chezmoi.sourceDir }}/dot_config/firefox/policies.json
 echo "run_firefox_profile from: ${FF_PROFILE_SOURCE}"
 echo "run_firefox_profile to  : ${FF_PROFILE_LOCATION}"
 
-mkdir -p $FF_PROFILE_LOCATION
-cp -rf $FF_PROFILE_SOURCE $FF_PROFILE_LOCATION
+$RUN_AS mkdir -p $FF_PROFILE_LOCATION
+$RUN_AS cp -rf $FF_PROFILE_SOURCE $FF_PROFILE_LOCATION
