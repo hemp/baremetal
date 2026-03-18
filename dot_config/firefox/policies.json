@@ -105,6 +105,10 @@
         "Status": "default",
         "Value": 1
       },
+      "browser.ai.control.default": {
+        "Status": "locked",
+        "Value": "blocked"
+      },
       "browser.aboutConfig.showWarning": {
         "Status": "locked",
         "Value": false
@@ -117,7 +121,15 @@
         "Status": "user",
         "Value": "cmd_scrollRight"
       },
+      "browser.ml.enable": {
+        "Status": "locked",
+        "Value": false
+      },
       "browser.tabs.warnOnClose": {
+        "Status": "locked",
+        "Value": false
+      },
+      "extensions.ml.enabled": {
         "Status": "locked",
         "Value": false
       },

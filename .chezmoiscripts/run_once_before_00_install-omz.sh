@@ -11,11 +11,11 @@ if [ ! -d "$ZSH" ]; then
   case "$OSTYPE" in
     linux*)
       sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' $HOME/.zshrc
-      sed -i 's/plugins=(git)/plugins=(aliases brew direnv eza fzf gh git gitfast gitignore mise uv yarn zsh-autosuggestions zsh-syntax-highlighting)/' $HOME/.zshrc
+      sed -i 's/plugins=(git)/plugins=(aliases direnv eza fzf gh git gitfast gitignore zsh-autosuggestions zsh-syntax-highlighting)/' $HOME/.zshrc
     ;;
     darwin*)
       sed -i '' 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' $HOME/.zshrc
-      sed -i '' 's/plugins=(git)/plugins=(aliases brew direnv eza fzf gh git gitfast gitignore mise uv yarn zsh-autosuggestions zsh-syntax-highlighting)/' $HOME/.zshrc
+      sed -i '' 's/plugins=(git)/plugins=(aliases direnv eza fzf gh git gitfast gitignore zsh-autosuggestions zsh-syntax-highlighting)/' $HOME/.zshrc
     ;; 
     win*)     echo "Windows" ;;
     msys*)    echo "MSYS / MinGW / Git Bash" ;;

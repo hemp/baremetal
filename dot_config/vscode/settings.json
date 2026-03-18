@@ -65,5 +65,9 @@
   "editor.fontVariations": false,
   "terminal.integrated.fontFamily": "MesloLGM Nerd Font",
   "editor.fontFamily": "'MesloLGM Nerd Font', 'Iosevka Nerd Font', Menlo, Monaco, 'Courier New', monospace",
-  "git.enableSmartCommit": true
+  "chat.disableAIFeatures": true,
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "git.enableSmartCommit": true,
+  "git.blame.editorDecoration.enabled": true,
+  "git.blame.statusBarItem.enabled": true
 }
