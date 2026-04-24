@@ -14,6 +14,30 @@
 export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
+# Disable Telemetry
+# "universal" signals (honored by some, ignored by many)
+export DO_NOT_TRACK=1
+export NO_TELEMETRY=1
+
+# Tools that need their own specific var
+export ASTRO_TELEMETRY_DISABLED=1          # Astro
+export CDK_DISABLE_CLI_TELEMETRY=true      # AWS
+export CHECKPOINT_DISABLE=1                # Prisma
+export DOTNET_CLI_TELEMETRY_OPTOUT=1       # .NET CLI
+export EXPO_NO_TELEMETRY=1                 # Expo
+export GATSBY_TELEMETRY_DISABLED=1         # Gatsby
+export GEMINI_TELEMETRY_ENABLED=false      # Gemini CLI
+export GH_TELEMETRY=false                  # GitHub CLI
+export HOMEBREW_NO_ANALYTICS=1             # Homebrew
+export NEXT_TELEMETRY_DISABLED=1           # Next.js
+export NUXT_TELEMETRY_DISABLED=1           # Nuxt
+export SAM_CLI_TELEMETRY=0                 # AWS
+export STORYBOOK_DISABLE_TELEMETRY=1       # Storybook
+export VERCEL_PLUGIN_TELEMETRY=off         # Vercel
+export VSCODE_CRASH_REPORTER_DISABLE=1     # VS Code
+export VSCODE_TELEMETRY_DISABLE=1          # VS Code
+export WRANGLER_SEND_METRICS=false         # Cloudflare Wrangler
+
 # Avoid issues with `gpg` (installed via Homebrew)
 # Ref: https://stackoverflow.com/a/42265848/96656
 export GPG_TTY=$TTY
