@@ -16,6 +16,7 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
 # Disable Telemetry
 # "universal" signals (honored by some, ignored by many)
+export DISABLE_TELEMETRY=1
 export DO_NOT_TRACK=1
 export NO_TELEMETRY=1
 
