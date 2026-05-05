@@ -22,6 +22,7 @@ export NO_TELEMETRY=1
 
 # Tools that need their own specific var
 export ASTRO_TELEMETRY_DISABLED=1          # Astro
+export AZURE_CORE_COLLECT_TELEMETRY=0      # Azure CLI
 export CDK_DISABLE_CLI_TELEMETRY=true      # AWS
 export CHECKPOINT_DISABLE=1                # Prisma
 export DOTNET_CLI_TELEMETRY_OPTOUT=1       # .NET CLI
@@ -32,7 +33,7 @@ export GH_TELEMETRY=false                  # GitHub CLI
 export HOMEBREW_NO_ANALYTICS=1             # Homebrew
 export NEXT_TELEMETRY_DISABLED=1           # Next.js
 export NUXT_TELEMETRY_DISABLED=1           # Nuxt
-export SAM_CLI_TELEMETRY=0                 # AWS
+export SAM_CLI_TELEMETRY=0                 # AWS SAM CLI
 export STORYBOOK_DISABLE_TELEMETRY=1       # Storybook
 export VERCEL_PLUGIN_TELEMETRY=off         # Vercel
 export VSCODE_CRASH_REPORTER_DISABLE=1     # VS Code
