@@ -125,6 +125,10 @@
         "Status": "locked",
         "Value": false
       },
+      "browser.newtabpage.activity-stream.widgets.enabled": {
+        "Status": "locked",
+        "Value": false
+      },
       "browser.tabs.warnOnClose": {
         "Status": "locked",
         "Value": false
