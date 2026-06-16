@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# @see win11: .chezmoiscripts/windows/run_thunderbird_profile.ps1
+
+echo "thunderbird-profile:"
+
+RUN_AS=
+
+{{ if eq .chezmoi.os "darwin" }}
+echo "Reminder about permissions:"
+echo " --> Enable:  > System Settings > Privacy & Security > App Management > Allow terminal apps"
+
+TB_PROFILE_LOCATION=/Applications/Thunderbird.app/Contents/Resources/distribution/
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+RUN_AS=sudo
+TB_PROFILE_LOCATION=/etc/thunderbird/policies/
+{{ end }}
+
+TB_PROFILE_SOURCE={{ .chezmoi.sourceDir }}/dot_config/thunderbird/policies.json
+
+echo "run_thunderbird_profile from: ${TB_PROFILE_SOURCE}"
+echo "run_thunderbird_profile to  : ${TB_PROFILE_LOCATION}"
+
+$RUN_AS mkdir -p $TB_PROFILE_LOCATION
+$RUN_AS cp -rf $TB_PROFILE_SOURCE $TB_PROFILE_LOCATION

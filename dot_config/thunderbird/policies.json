@@ -1,0 +1,26 @@
+{
+  "policies": {
+    "AppAutoUpdate": true,
+    "DisableTelemetry": true,
+    "ExtensionSettings": {
+      "uBlock0@raymondhill.net": {
+        "install_url": "https://addons.thunderbird.net/thunderbird/downloads/latest/ublock-origin/latest.xpi",
+        "installation_mode": "force_installed"
+      },
+      "dkim_verifier@pl": {
+        "install_url": "https://addons.thunderbird.net/thunderbird/downloads/latest/dkim-verifier/latest.xpi",
+        "installation_mode": "force_installed"
+      }
+    },
+    "Preferences": {
+      "mail.inappnotifications.enabled": {
+        "Status": "locked",
+        "Value": false
+      },
+      "mailnews.start_page.enabled": {
+        "Status": "locked",
+        "Value": false
+      }
+    }
+  }
+}

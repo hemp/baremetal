@@ -11,18 +11,9 @@
           }
         },
         "uBlock0@raymondhill.net": {
-          "adminSettings": {
-            "selectedFilterLists": [
-              "user-filters",
-              "ublock-filters",
-              "ublock-badware",
-              "ublock-privacy",
+          "toAdd": {
+            "filterLists": [
               "ublock-quick-fixes",
-              "ublock-unbreak",
-              "easylist",
-              "easyprivacy",
-              "urlhaus-1",
-              "plowe-0",
               "fanboy-cookiemonster",
               "ublock-cookies-easylist",
               "fanboy-social",
@@ -34,6 +25,12 @@
             ]
           }
         }
+      }
+    },
+    "AIControls": {
+      "Default": {
+        "Value": "blocked",
+        "Locked": true
       }
     },
     "DisableAccounts": true,
@@ -80,7 +77,7 @@
     },
     "FirefoxSuggest": {
       "ImproveSuggest": false,
-      "Locked": false,
+      "Locked": true,
       "SponsoredSuggestions": false,
       "WebSuggestions": false
     },
@@ -104,10 +101,6 @@
       "accessibility.force_disabled": {
         "Status": "default",
         "Value": 1
-      },
-      "browser.ai.control.default": {
-        "Status": "locked",
-        "Value": "blocked"
       },
       "browser.aboutConfig.showWarning": {
         "Status": "locked",
