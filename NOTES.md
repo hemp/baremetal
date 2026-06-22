@@ -1,12 +1,6 @@
-# TODO
+# Notes
 
-- uBlock Origin config - <https://github.com/gorhill/uBlock/wiki/Deploying-uBlock-Origin:-configuration>
-- REW
-  - http://www.roomeqwizard.com/
-  - https://sourceforge.net/projects/equalizerapo/
-  - https://realtraps.com/art_microphones.htm
-
-## Notes
+## Breadcrumbs
 
 ### VSCode `settings.json`
 
@@ -34,9 +28,29 @@ Refreshed every `chezmoi apply`. Same Mozilla policy engine as Firefox; only Thu
 
 ## Review
 
-- https://github.com/twpayne/dotfiles
-- https://github.com/Nitestack/dotfiles
-- https://github.com/agarun/dotfiles
-- https://github.com/MikeMcQuaid/dotfiles/blob/main/Brewfile
-- https://github.com/drmohundro/dotfiles
-- https://github.com/ctdio/dotfiles/
+### dotfiles
+
+- <https://mise.jdx.dev/bootstrap.html>
+
+- <https://github.com/twpayne/dotfiles>
+- <https://github.com/Nitestack/dotfiles>
+- <https://github.com/agarun/dotfiles>
+- <https://github.com/MikeMcQuaid/dotfiles/blob/main/Brewfile>
+- <https://github.com/drmohundro/dotfiles>
+
+### Wallpapers
+
+- <https://github.com/makccr/wallpapers>
+- <https://github.com/harilvfs/wallpapers>
+
+## TODO
+
+- REW
+  - <http://www.roomeqwizard.com/>
+  - <https://sourceforge.net/projects/equalizerapo/>
+  - <https://realtraps.com/art_microphones.htm>
+- Launchers
+  - <https://macos-defaults.com/>
+  - <https://ueli.app/>             cross-platform launcher
+  - <https://github.com/anyrun-org/anyrun>
+  - <https://github.com/unsecretised/rustcast>
