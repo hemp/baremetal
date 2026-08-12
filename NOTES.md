@@ -14,6 +14,7 @@ Refreshed every `chezmoi apply`.
 
 - Docs: <https://mozilla.github.io/policy-templates/>
 - Schema: <https://github.com/mozilla/policy-templates/blob/master/linux/policies.json>
+- User prefs: <https://github.com/mozilla-firefox/firefox/blob/main/browser/app/profile/firefox.js>
 - Use addon `guid` inside `policies.json` for the JSON key. Example: <https://addons.mozilla.org/api/v5/addons/addon/temporary-containers/>
 - uBlock Origin filter-list tokens + defaults (entries with no `off`/`lang` are on by default): <https://github.com/gorhill/uBlock/blob/master/assets/assets.json>
 
@@ -51,6 +52,6 @@ Refreshed every `chezmoi apply`. Same Mozilla policy engine as Firefox; only Thu
   - <https://realtraps.com/art_microphones.htm>
 - Launchers
   - <https://macos-defaults.com/>
-  - <https://ueli.app/>             cross-platform launcher
+  - <https://ueli.app/>
   - <https://github.com/anyrun-org/anyrun>
   - <https://github.com/unsecretised/rustcast>

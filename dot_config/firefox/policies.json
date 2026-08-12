@@ -29,8 +29,8 @@
     },
     "AIControls": {
       "Default": {
-        "Value": "blocked",
-        "Locked": true
+        "Locked": true,
+        "Value": "blocked"
       }
     },
     "DisableAccounts": true,
@@ -40,10 +40,6 @@
     "DisableTelemetry": true,
     "DisplayBookmarksToolbar": "always",
     "ExtensionSettings": {
-      "{9063c2e9-e07c-4c2c-9646-cfe7ca8d0498}": {
-        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/old-reddit-redirect/latest.xpi",
-        "installation_mode": "force_installed"
-      },
       "{c607c8df-14a7-4f28-894f-29e8722976af}": {
         "install_url": "https://addons.mozilla.org/firefox/downloads/latest/temporary-containers/latest.xpi",
         "installation_mode": "force_installed"
@@ -72,7 +68,9 @@
       "Search": true,
       "Snippets": false,
       "SponsoredPocket": false,
+      "SponsoredStories": false,
       "SponsoredTopSites": false,
+      "Stories": false,
       "TopSites": false
     },
     "FirefoxSuggest": {
@@ -89,8 +87,9 @@
       "Additional": [],
       "Locked": false,
       "StartPage": "none",
-      "URL": ""
+      "URL": "about:blank"
     },
+    "NewTabPage": false,
     "NoDefaultBookmarks": true,
     "OverrideFirstRunPage": "",
     "OverridePostUpdatePage": "",
@@ -106,6 +105,10 @@
         "Status": "locked",
         "Value": false
       },
+      "browser.contentblocking.report.hide_vpn_banner": {
+        "Status": "locked",
+        "Value": true
+      },
       "browser.gesture.swipe.left": {
         "Status": "user",
         "Value": "cmd_scrollLeft"
@@ -114,7 +117,23 @@
         "Status": "user",
         "Value": "cmd_scrollRight"
       },
+      "browser.ipProtection.blockIPProtectionCallouts": {
+        "Status": "locked",
+        "Value": true
+      },
+      "browser.ipProtection.enabled": {
+        "Status": "locked",
+        "Value": false
+      },
       "browser.ml.enable": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.newtabpage.activity-stream.discoverystream.promoCard.visible": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.newtabpage.activity-stream.unifiedAds.spocs.enabled": {
         "Status": "locked",
         "Value": false
       },
@@ -122,11 +141,35 @@
         "Status": "locked",
         "Value": false
       },
+      "browser.newtabpage.activity-stream.widgets.system.enabled": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.promo.pin.enabled": {
+        "Status": "locked",
+        "Value": false
+      },
       "browser.tabs.warnOnClose": {
         "Status": "locked",
         "Value": false
       },
+      "browser.topsites.contile.enabled": {
+        "Status": "locked",
+        "Value": false
+      },
+      "browser.vpn_promo.enabled": {
+        "Status": "locked",
+        "Value": false
+      },
       "extensions.ml.enabled": {
+        "Status": "locked",
+        "Value": false
+      },
+      "identity.fxaccounts.toolbar.pxiToolbarEnabled": {
+        "Status": "locked",
+        "Value": false
+      },
+      "messaging-system.askForFeedback": {
         "Status": "locked",
         "Value": false
       },
