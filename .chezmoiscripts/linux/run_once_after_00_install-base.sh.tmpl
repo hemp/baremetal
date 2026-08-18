@@ -11,7 +11,9 @@ echo "---"
 sudo apt update
 echo "---"
 
-echo "{{ .chezmoi | toJson }}"
+cat <<'EOF'
+{{ .chezmoi | toJson }}
+EOF
 echo "---"
 
 {{ if ne .chezmoi.arch "arm64" -}}

@@ -1,0 +1,45 @@
+{
+  "BookmarkBarEnabled": true,
+  "BrowserLabsEnabled": false,
+  "BrowserSignin": 0,
+  "ChromeVariations": 2,
+  "ExtensionSettings": {
+    "ddkjiahejlhfcafbddmgiahcphecmpfh": {
+      "installation_mode": "force_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "pejdijmoenmkgeppbflobdenhhabjlaj": {
+      "installation_mode": "force_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "ponfpcnoihfmfllpaingbgckeeldkhle": {
+      "installation_mode": "force_installed",
+      "update_url": "https://clients2.google.com/service/update2/crx"
+    }
+  },
+  "GenAiDefaultSettings": 2,
+  "HomepageIsNewTabPage": false,
+  "HomepageLocation": "about:blank",
+  "ImportAutofillFormData": false,
+  "ImportBookmarks": false,
+  "ImportHistory": false,
+  "ImportHomepage": false,
+  "ImportSavedPasswords": false,
+  "ImportSearchEngine": false,
+  "LensOverlaySettings": 1,
+  "LensRegionSearchEnabled": false,
+  "MediaRecommendationsEnabled": false,
+  "MetricsReportingEnabled": false,
+  "NewTabPageLocation": "about:blank",
+  "NTPCardsVisible": false,
+  "NTPMiddleSlotAnnouncementVisible": false,
+  "PromotionsEnabled": false,
+  "RestoreOnStartup": 4,
+  "RestoreOnStartupURLs": [
+    "about:blank"
+  ],
+  "SearchContentSharingSettings": 1,
+  "SearchSuggestEnabled": false,
+  "SyncDisabled": true,
+  "UserFeedbackAllowed": false
+}

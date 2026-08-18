@@ -12,7 +12,7 @@ ITERATION0_APT=(
   zsh
 )
 
-sudo apt-get install -y ${ITERATION0_APT[@]}
+sudo apt-get install -y "${ITERATION0_APT[@]}"
 
 # lunarvim
 bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
@@ -23,7 +23,7 @@ ITERATION1_SERVER=(
   openssh-server
 )
 
-sudo apt-get install -y ${ITERATION1_SERVER[@]}
+sudo apt-get install -y "${ITERATION1_SERVER[@]}"
 
 {{- else -}}
 
@@ -47,7 +47,7 @@ ITERATION1=(
   direnv
 )
 
-sudo apt-get install -y ${ITERATION1[@]}
+sudo apt-get install -y "${ITERATION1[@]}"
 
 # vscode
 # wget -q "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -O /tmp/vscode-latest.deb
@@ -80,7 +80,7 @@ ITERATION_BREW=(
   the_silver_searcher
 )
 
-brew install ${ITERATION_BREW[@]}
+brew install "${ITERATION_BREW[@]}"
 
 sudo apt install fontconfig
 brew install --cask font-meslo-lg-nerd-font

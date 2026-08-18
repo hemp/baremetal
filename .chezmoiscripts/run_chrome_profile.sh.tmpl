@@ -1,0 +1,139 @@
+#!/bin/bash
+
+# @see win11: .chezmoiscripts/windows/run_chrome_profile.ps1
+
+set -euo pipefail
+
+echo "chrome-profile:"
+
+CHROME_POLICY_SOURCE="{{ .chezmoi.sourceDir }}/dot_config/chrome/policies.json"
+
+echo "run_chrome_profile from: ${CHROME_POLICY_SOURCE}"
+
+{{ if eq .chezmoi.os "darwin" }}
+PROFILE_DESTINATION="${HOME}/.config/chrome/policies.mobileconfig"
+
+TEMP_DIR=$(mktemp -d)
+trap 'rm -rf "$TEMP_DIR"' EXIT
+TEMP_POLICY="${TEMP_DIR}/policies.plist"
+TEMP_PROFILE="${TEMP_DIR}/policies.mobileconfig"
+
+plutil -convert xml1 -o "$TEMP_POLICY" "$CHROME_POLICY_SOURCE"
+plutil -lint "$TEMP_POLICY"
+POLICY_XML=$(sed '1,3d;$d' "$TEMP_POLICY")
+
+cat > "$TEMP_PROFILE" <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>PayloadContent</key>
+  <array>
+    <dict>
+      <key>PayloadContent</key>
+      <dict>
+        <key>com.google.Chrome</key>
+        <dict>
+          <key>Forced</key>
+          <array>
+            <dict>
+              <key>mcx_preference_settings</key>
+${POLICY_XML}
+            </dict>
+          </array>
+        </dict>
+        <key>com.google.Chrome.canary</key>
+        <dict>
+          <key>Forced</key>
+          <array>
+            <dict>
+              <key>mcx_preference_settings</key>
+${POLICY_XML}
+            </dict>
+          </array>
+        </dict>
+        <key>org.chromium.Chromium</key>
+        <dict>
+          <key>Forced</key>
+          <array>
+            <dict>
+              <key>mcx_preference_settings</key>
+${POLICY_XML}
+            </dict>
+          </array>
+        </dict>
+      </dict>
+      <key>PayloadDisplayName</key>
+      <string>Dotfiles: Chrome managed preferences</string>
+      <key>PayloadIdentifier</key>
+      <string>io.chezmoi.chrome-policies.managed-preferences</string>
+      <key>PayloadType</key>
+      <string>com.apple.ManagedClient.preferences</string>
+      <key>PayloadUUID</key>
+      <string>D73D065D-8B55-4A14-B8A7-A0EC85CF846F</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+    </dict>
+  </array>
+  <key>PayloadDescription</key>
+  <string>Managed browser policies generated from ~/.config/chrome/policies.json.</string>
+  <key>PayloadDisplayName</key>
+  <string>Dotfiles: Chrome, Chrome Canary, and Chromium policies</string>
+  <key>PayloadIdentifier</key>
+  <string>io.chezmoi.chrome-policies</string>
+  <key>PayloadOrganization</key>
+  <string>chezmoi</string>
+  <key>PayloadRemovalDisallowed</key>
+  <false/>
+  <key>PayloadScope</key>
+  <string>System</string>
+  <key>PayloadType</key>
+  <string>Configuration</string>
+  <key>PayloadUUID</key>
+  <string>9D390265-B656-42E2-91B9-C00C0C4B6274</string>
+  <key>PayloadVersion</key>
+  <integer>1</integer>
+</dict>
+</plist>
+EOF
+
+plutil -lint "$TEMP_PROFILE"
+mkdir -p "$(dirname "$PROFILE_DESTINATION")"
+install -m 0644 "$TEMP_PROFILE" "$PROFILE_DESTINATION"
+echo "run_chrome_profile to  : ${PROFILE_DESTINATION}"
+
+STALE_MANAGED_PREFERENCES=(
+  "/Library/Managed Preferences/com.google.Chrome.plist"
+  "/Library/Managed Preferences/com.google.Chrome.canary.plist"
+  "/Library/Managed Preferences/org.chromium.Chromium.plist"
+)
+for STALE_POLICY in "${STALE_MANAGED_PREFERENCES[@]}"; do
+  if [[ -f "$STALE_POLICY" ]]; then
+    echo "removing ineffective direct plist: ${STALE_POLICY}"
+    sudo rm -f "$STALE_POLICY"
+  fi
+done
+
+echo
+echo "ACTION REQUIRED: macOS generated the Chrome policy profile but cannot install it automatically."
+echo "1. Open the generated profile:"
+printf '   open %q\n' "$PROFILE_DESTINATION"
+echo "2. Open System Settings directly to General > Device Management:"
+echo '   open "x-apple.systempreferences:com.apple.Profiles-Settings.extension"'
+echo "3. Select the Chrome policy profile and approve Install/Replace."
+echo "4. Fully quit and reopen Chrome, Chrome Canary, or Chromium."
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+POLICY_LOCATIONS=(
+  "/etc/opt/chrome/policies/managed"
+  "/etc/chromium/policies/managed"
+)
+
+for POLICY_LOCATION in "${POLICY_LOCATIONS[@]}"; do
+  POLICY_DESTINATION="${POLICY_LOCATION}/policies.json"
+  echo "run_chrome_profile to  : ${POLICY_DESTINATION}"
+  sudo mkdir -p "$POLICY_LOCATION"
+  sudo install -o root -g root -m 0644 "$CHROME_POLICY_SOURCE" "$POLICY_DESTINATION"
+done
+{{ end }}
