@@ -1,0 +1,45 @@
+export PATH="$HOME/.local/bin:$PATH"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+# https://github.com/junegunn/fzf?tab=readme-ov-file#environment-variables
+export FZF_DEFAULT_COMMAND="fd"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND"
+
+export FZF_CTRL_T_OPTS="
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+# Disable telemetry.
+# "Universal" signals (honored by some, ignored by many).
+export DISABLE_TELEMETRY=1
+export DO_NOT_TRACK=1
+export NO_TELEMETRY=1
+
+# Tool-specific telemetry settings.
+export ASTRO_TELEMETRY_DISABLED=1          # Astro
+export AZURE_CORE_COLLECT_TELEMETRY=0      # Azure CLI
+export CDK_DISABLE_CLI_TELEMETRY=true      # AWS
+export CHECKPOINT_DISABLE=1                # Prisma
+export DOTNET_CLI_TELEMETRY_OPTOUT=1       # .NET CLI
+export EXPO_NO_TELEMETRY=1                 # Expo
+export GATSBY_TELEMETRY_DISABLED=1         # Gatsby
+export GEMINI_TELEMETRY_ENABLED=false      # Gemini CLI
+export GH_TELEMETRY=false                  # GitHub CLI
+export HOMEBREW_NO_ANALYTICS=1             # Homebrew
+export NEXT_TELEMETRY_DISABLED=1           # Next.js
+export NUXT_TELEMETRY_DISABLED=1           # Nuxt
+export SAM_CLI_TELEMETRY=0                 # AWS SAM CLI
+export STORYBOOK_DISABLE_TELEMETRY=1       # Storybook
+export VERCEL_PLUGIN_TELEMETRY=off         # Vercel
+export VSCODE_CRASH_REPORTER_DISABLE=1     # VS Code
+export VSCODE_TELEMETRY_DISABLE=1          # VS Code
+export WRANGLER_SEND_METRICS=false         # Cloudflare Wrangler
+
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv zsh)"
+elif [[ -x /usr/local/bin/brew ]]; then
+  eval "$(/usr/local/bin/brew shellenv zsh)"
+elif [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv zsh)"
+fi
