@@ -2,7 +2,8 @@
   "BookmarkBarEnabled": true,
   "BrowserLabsEnabled": false,
   "BrowserSignin": 0,
-  "ChromeVariations": 2,
+  "ChromeVariations": 1,
+  "DefaultBrowserSettingEnabled": false,
   "ExtensionSettings": {
     "ddkjiahejlhfcafbddmgiahcphecmpfh": {
       "installation_mode": "force_installed",
@@ -26,8 +27,6 @@
   "ImportHomepage": false,
   "ImportSavedPasswords": false,
   "ImportSearchEngine": false,
-  "LensOverlaySettings": 1,
-  "LensRegionSearchEnabled": false,
   "MediaRecommendationsEnabled": false,
   "MetricsReportingEnabled": false,
   "NewTabPageLocation": "about:blank",
@@ -41,5 +40,6 @@
   "SearchContentSharingSettings": 1,
   "SearchSuggestEnabled": false,
   "SyncDisabled": true,
-  "UserFeedbackAllowed": false
+  "UserFeedbackAllowed": false,
+  "WarnBeforeQuittingEnabled": false
 }
