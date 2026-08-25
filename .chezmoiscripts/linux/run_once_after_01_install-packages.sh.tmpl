@@ -45,9 +45,23 @@ ITERATION1=(
   # tig
   # vlc
   direnv
+  easyeffects
 )
 
 sudo apt-get install -y "${ITERATION1[@]}"
+
+# EasyEffects 8.x presets (Debian sid)
+EASYEFFECTS_PRESETS_REPO="$HOME/.easyeffects-presets"
+EASYEFFECTS_PRESETS_DIR="${XDG_DATA_HOME:-"$HOME/.local/share"}/easyeffects/output"
+
+if [ ! -d "$EASYEFFECTS_PRESETS_REPO" ]; then
+  git clone --depth=1 https://github.com/Digitalone1/EasyEffects-Presets.git "$EASYEFFECTS_PRESETS_REPO"
+fi
+
+mkdir -p "$EASYEFFECTS_PRESETS_DIR"
+for preset in LoudnessEqualizer.json LoudnessCrystalEqualizer.json; do
+  ln -sfn "$EASYEFFECTS_PRESETS_REPO/$preset" "$EASYEFFECTS_PRESETS_DIR/$preset"
+done
 
 # vscode
 # wget -q "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -O /tmp/vscode-latest.deb

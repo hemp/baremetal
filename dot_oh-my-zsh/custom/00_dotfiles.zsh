@@ -40,6 +40,7 @@ _updateall() (
   _updatezshplugins
   _updatedelta
   _updateitermcolorschemes
+  _updateeasyeffectspresets
 )
 
 _updatep10k() (
@@ -57,6 +58,12 @@ _updatedelta() (
 
 _updateitermcolorschemes() (
   git -C "$HOME/.iterm2-color-schemes" pull
+)
+
+_updateeasyeffectspresets() (
+  if [[ -d "$HOME/.easyeffects-presets/.git" ]]; then
+    git -C "$HOME/.easyeffects-presets" pull
+  fi
 )
 
 eval "$(mise activate zsh)"
