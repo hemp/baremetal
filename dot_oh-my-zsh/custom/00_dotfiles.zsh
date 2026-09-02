@@ -30,9 +30,9 @@ alias _clock="tty-clock -s -c -C 2"
 alias _ohmyzsh="code $HOME/.oh-my-zsh"
 alias _zshconfig="code $HOME/.zshrc"
 
-if command -v nvim >/dev/null; then
-  alias vi=$(which nvim)
-  alias vim=$(which nvim)
+if command -v emacs >/dev/null 2>&1; then
+  alias vi='emacs -nw'
+  alias vim='emacs -nw'
 fi
 
 _updateall() (
@@ -48,6 +48,7 @@ _updatep10k() (
 )
 
 _updatezshplugins() (
+  git -C "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab" pull
   git -C "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" pull
   git -C "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting" pull
 )
@@ -66,4 +67,10 @@ _updateeasyeffectspresets() (
   fi
 )
 
-eval "$(mise activate zsh)"
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
+fi
+
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi

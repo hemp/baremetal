@@ -6,24 +6,34 @@ echo "omz:"
 
 if [ ! -d "$ZSH" ]; then
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
-  # .zshrc - minimize .zshrc changes. @see 00_dotfiles.zsh
-  case "$OSTYPE" in
-    linux*)
-      sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' $HOME/.zshrc
-      sed -i 's/plugins=(git)/plugins=(aliases direnv eza fzf gh git gitfast gitignore zsh-autosuggestions zsh-syntax-highlighting)/' $HOME/.zshrc
-    ;;
-    darwin*)
-      sed -i '' 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' $HOME/.zshrc
-      sed -i '' 's/plugins=(git)/plugins=(aliases direnv eza fzf gh git gitfast gitignore zsh-autosuggestions zsh-syntax-highlighting)/' $HOME/.zshrc
-    ;; 
-    win*)     echo "Windows" ;;
-    msys*)    echo "MSYS / MinGW / Git Bash" ;;
-    cygwin*)  echo "Cygwin" ;;
-    bsd*)     echo "BSD" ;;
-    solaris*) echo "Solaris" ;;
-    *)        echo "unknown: $OSTYPE" ;;
-  esac
+# Keep .zshrc close to the OMZ template while enforcing managed settings.
+# fzf-tab must load before plugins that wrap completion widgets.
+OMZ_PLUGINS=(
+  aliases
+  direnv
+  eza
+  fzf
+  fzf-tab
+  gh
+  git
+  gitfast
+  gitignore
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
+OMZ_PLUGINS_LINE="plugins=(${OMZ_PLUGINS[*]})"
+
+if [ -f "$HOME/.zshrc" ]; then
+  sed -i.bak \
+    -e 's|^ZSH_THEME=.*$|ZSH_THEME="powerlevel10k/powerlevel10k"|' \
+    -e "s|^plugins=(.*)$|$OMZ_PLUGINS_LINE|" \
+    "$HOME/.zshrc"
+fi
+
+if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab" ]; then
+  git clone --depth=1 https://github.com/Aloxaf/fzf-tab.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab"
 fi
 
 if [ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions" ]; then

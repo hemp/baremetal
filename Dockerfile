@@ -1,10 +1,17 @@
-FROM debian:latest
+FROM debian:sid-slim
 
-RUN apt-get update && apt-get install -y \
-    curl git sudo zsh \
-    && apt-get clean
-
-RUN sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /usr/bin/
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        ca-certificates \
+        chezmoi \
+        curl \
+        git \
+        libssl-dev \
+        pkg-config \
+        sudo \
+        zsh \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /root
 

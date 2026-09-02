@@ -1,0 +1,13 @@
+;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+
+(setq user-mail-address {{ .email | quote }}
+      doom-theme 'doom-one
+      display-line-numbers-type 'relative
+      org-directory "~/org/")
+
+;; Match the wrapped-line behavior from the previous LunarVim config.
+(setq-default truncate-lines nil
+              word-wrap t)
+
+;; Rainbow delimiters replaces rainbow-delimiters.nvim.
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)

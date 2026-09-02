@@ -18,5 +18,9 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
-sudo hostnamectl set-hostname  "${MACHINE_NAME}"
+if command -v hostnamectl >/dev/null 2>&1 && [[ -d /run/systemd/system ]]; then
+  sudo hostnamectl set-hostname "${MACHINE_NAME}"
+else
+  echo "Skipping hostname configuration: systemd/hostnamectl is unavailable."
+fi
 {{ end }}

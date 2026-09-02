@@ -3,6 +3,7 @@ Write-Host "win11-shard: core"
 # TODO: boxstarter / chocolately with unigetui. See unigetui and ..\chocolately.ubundle
 
 winget install --exact --id 7zip.7zip
+winget install --exact --id ajeetdsouza.zoxide
 winget install --exact --id BurntSushi.ripgrep.MSVC
 winget install --exact --id dandavison.delta
 winget install --exact --id eza-community.eza

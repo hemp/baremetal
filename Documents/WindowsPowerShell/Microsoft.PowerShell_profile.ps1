@@ -14,3 +14,7 @@ Set-Alias -Name cat -Value bat -Option AllScope
 Set-Alias -Name find -Value fd -Option AllScope
 Set-Alias -Name grep -Value rg -Option AllScope
 Set-Alias -Name ls -Value eza -Option AllScope
+
+if (Get-Command zoxide -ErrorAction SilentlyContinue) {
+    Invoke-Expression (& { (zoxide init powershell | Out-String) })
+}

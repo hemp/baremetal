@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# Doom config hash: {{ include "dot_config/doom/init.el" | sha256sum }} {{ include "dot_config/doom/packages.el" | sha256sum }}
+EMACS_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/emacs"
+
+if [[ ! -x "$EMACS_DIR/bin/doom" ]]; then
+  echo "sync-doom-emacs: skipped; Doom is not installed."
+  exit 0
+fi
+
+echo "sync-doom-emacs:"
+"$EMACS_DIR/bin/doom" -! sync

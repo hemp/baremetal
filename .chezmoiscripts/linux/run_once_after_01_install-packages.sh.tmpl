@@ -1,21 +1,60 @@
 #!/bin/bash
 
+set -euo pipefail
+
 echo "install-packages:"
 
 ITERATION0_APT=(
+  apt-listbugs
+  apt-listchanges
+  bat
+  build-essential
+  broot
+  btop
+  chezmoi
   curl
+  du-dust
+{{ if eq .machineType "server" }}
+  emacs-nox
+{{ else }}
+  emacs
+{{ end }}
+  extrepo
+  eza
+  fontconfig
+  fastfetch
+  fd-find
+  fzf
   git
+  git-delta
   gpg
+  hexyl
+  iperf3
   jq
+  lazygit
+  libimage-exiftool-perl
+  libssl-dev
+  lm-sensors
+  lshw
+  neovim
+  nmap
+  numbat
+  nvtop
+  pkg-config
+  ranger
+  ripgrep
   sudo
+  tealdeer
   wget
+  zoxide
   zsh
 )
 
 sudo apt-get install -y "${ITERATION0_APT[@]}"
 
-# lunarvim
-bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+sudo extrepo enable mise
+sudo apt-get update
+sudo apt-get install -y mise
 
 {{ if eq .machineType "server" -}}
 
@@ -27,25 +66,23 @@ sudo apt-get install -y "${ITERATION1_SERVER[@]}"
 
 {{- else -}}
 
+sudo extrepo enable vscode
+sudo apt-get update
+
 ITERATION1=(
-  # audacious
-  # audacious-plugins
-  # chromium-browser
-  # conky-all
-  # diffuse
-  # firefox
-  # fonts-inconsolata
-  # git-cola
-  # i3
-  # network-manager-openvpn
-  # network-manager-openvpn-gnome
-  # openvpn
-  # qgit
-  # shutter
-  # tig
-  # vlc
+  alacritty
+  code
   direnv
   easyeffects
+  firefox
+  foot
+  foot-terminfo
+  gimp
+  hx
+  inkscape
+  mpv
+  obs-studio
+  vlc
 )
 
 sudo apt-get install -y "${ITERATION1[@]}"
@@ -63,42 +100,8 @@ for preset in LoudnessEqualizer.json LoudnessCrystalEqualizer.json; do
   ln -sfn "$EASYEFFECTS_PRESETS_REPO/$preset" "$EASYEFFECTS_PRESETS_DIR/$preset"
 done
 
-# vscode
-# wget -q "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -O /tmp/vscode-latest.deb
-# sudo apt install /tmp/vscode-latest.deb
-# sudo rm /tmp/vscode-latest.deb
+"$HOME/.local/bin/install-fonts.sh"
 
 {{- end }}
 
-{{ if ne .chezmoi.arch "arm64" -}}
-
-# homebrew does not support arm
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-ITERATION_BREW=(
-  bat
-  bottom
-  btop
-  ctop
-  dive
-  dust
-  eza
-  fd
-  fzf
-  git-delta
-  lazygit
-  neovim
-  ranger
-  ripgrep
-  tealdeer
-  the_silver_searcher
-)
-
-brew install "${ITERATION_BREW[@]}"
-
-sudo apt install fontconfig
-brew install --cask font-meslo-lg-nerd-font
-
-{{- end }}
-
-sudo apt autoremove
+sudo apt-get autoremove -y
