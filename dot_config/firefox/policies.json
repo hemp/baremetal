@@ -37,6 +37,7 @@
     "DisableFirefoxStudies": true,
     "DisablePocket": true,
     "DisableProfileImport": true,
+    "DisableRemoteImprovements": true,
     "DisableTelemetry": true,
     "DisplayBookmarksToolbar": "always",
     "ExtensionSettings": {
